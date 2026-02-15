@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="S2 Kennel Jammu - Premium Dog Breeders in Vijaypur, Jammu & Kashmir">
+    <title>S2 Kennel Jammu - Premium Dogs | Vijaypur</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <style>
+        .hero-img {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            border-radius: 16px;
+            border: none !important;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+            max-height: 480px;
+            min-height: 350px;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-img {
+                height: 350px;
+                min-height: 300px;
+                border-radius: 14px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-img {
+                height: 280px;
+                min-height: 250px;
+                border-radius: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- HEADER/NAVBAR -->
+    <header class="site-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="brand">
+                    <h1 class="brand-title">S2 Kennel Jammu</h1>
+                    <p class="brand-subtitle">🐕 Premium Dog Breeders • Vijaypur</p>
+                </div>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <nav class="navbar" id="navbar">
+                    <ul class="nav-menu">
+                        <li><a href="index.html" class="nav-link active">Home</a></li>
+                        <li><a href="about.html" class="nav-link">About</a></li>
+                        <li><a href="cats.html" class="nav-link">Cats</a></li>
+                        <li><a href="dogs.html" class="nav-link">Dogs</a></li>
+                        <li><a href="reviews.html" class="nav-link">Reviews</a></li>
+                        <li><a href="health-tips.html" class="nav-link">Health Tips</a></li>
+                        <li><a href="location.html" class="nav-link">Location</a></li>
+                        <li><a href="contact.html" class="nav-link">Contact</a></li>
+                        <li><a href="/admin.html" class="nav-link">ADMIN</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO SECTION -->
+        <section id="home" class="hero-section">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h2 class="hero-title">WELCOME TO S2 KENNEL JAMMU</h2>
+                        <p class="hero-description">S2 Kennel Jammu is renowned for premium dog breeding with ethical practices, rigorous health certifications, and unwavering commitment to quality. Every dog is bred with meticulous care and complete transparency, ensuring your
+                            perfect companion arrives healthy and ready for their forever home.</p>
+                        <div class="hero-buttons">
+                            <a href="dogs.html" class="btn btn-primary">View Our Dogs</a>
+                            <a href="contact.html" class="btn btn-secondary">Contact Us</a>
+                        </div>
+                    </div>
+                    <div class="hero-image">
+                        <img id="heroImg" src="images/dog1.jpg" alt="Dog" class="hero-img">
+                    </div>
+                </div>
+
+                <!-- Owner Section -->
+                <div class="owner-section">
+                    <div class="owner-photo-wrapper">
+                        <img src="images/owner.jpg" alt="Harsh Sharma - Owner" class="owner-photo">
+                    </div>
+                    <div class="owner-info">
+                        <h3 class="owner-name">Harsh Sharma</h3>
+                        <p class="owner-title">Founder & Owner – S2 Kennel Jammu</p>
+                        <p class="owner-experience">10+ Years Experience in Premium Dog Breeding</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- BEGIN: Premium Homepage (dog-themed) - inserted block -->
+        <section id="premium-dog-home" aria-label="Premium homepage features">
+            <style>
+                /* Premium fonts and scoped styles under #premium-dog-home to avoid affecting other pages */
+                
+                @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@600;700&display=swap');
+                #premium-dog-home {
+                    max-width: 1200px;
+                    margin: 40px auto;
+                    padding: 0 16px;
+                    box-sizing: border-box;
+                    font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+                    color: #222;
+                }
+                /* Hero / Slider */
+                
+                #premium-dog-home .hero {
+                    position: relative;
+                    border-radius: 16px;
+                    overflow: hidden;
+                    height: 520px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background: #f7fbff;
+                    margin-bottom: 40px;
+                    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+                }
+                
+                #premium-dog-home .hero .slides {
+                    position: absolute;
+                    inset: 0;
+                }
+                
+                #premium-dog-home .hero .slide {
+                    position: absolute;
+                    inset: 0;
+                    background-size: cover;
+                    background-position: center;
+                    opacity: 0;
+                    transition: opacity 1s ease;
+                }
+                
+                #premium-dog-home .hero .slide.active {
+                    opacity: 1;
+                }
+                
+                #premium-dog-home .hero .overlay {
+                    position: relative;
+                    z-index: 2;
+                    padding: 28px;
+                    color: #fff;
+                    text-shadow: 0 6px 18px rgba(0, 0, 0, .45);
+                    max-width: 900px;
+                    text-align: center;
+                }
+                
+                #premium-dog-home .hero h1 {
+                    margin: 0 0 12px;
+                    font-size: 45px;
+                    font-family: 'Playfair Display', serif;
+                    letter-spacing: 0.4px;
+                    font-weight: 700;
+                }
+                
+                #premium-dog-home .hero p {
+                    margin: 0;
+                    font-size: 18px;
+                    opacity: 0.95;
+                    line-height: 1.6;
+                }
+                /* Layout rows */
+                
+                #premium-dog-home .grid-3 {
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    gap: 20px;
+                    margin-bottom: 20px;
+                }
+                
+                #premium-dog-home .grid-4 {
+                    display: grid;
+                    grid-template-columns: repeat(4, 1fr);
+                    gap: 12px;
+                    margin-bottom: 20px;
+                }
+                
+                #premium-dog-home .card {
+                    background: #fff;
+                    border-radius: 12px;
+                    padding: 16px;
+                    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    transition: all 0.3s ease;
+                }
+                
+                #premium-dog-home .card:hover {
+                    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+                }
+                /* Featured Dogs */
+                
+                #premium-dog-home .dog {
+                    overflow: hidden;
+                    display: flex;
+                    gap: 12px;
+                    align-items: flex-start;
+                }
+                
+                #premium-dog-home .dog .thumb {
+                    width: 140px;
+                    height: 100px;
+                    border-radius: 10px;
+                    background-size: cover;
+                    background-position: center;
+                    flex: 0 0 140px;
+                    object-fit: cover;
+                }
+                
+                #premium-dog-home .dog h3 {
+                    margin: 0;
+                    color: #0b4a72;
+                    font-size: 18px;
+                    font-weight: 600;
+                }
+                
+                #premium-dog-home .dog p {
+                    margin: 0;
+                    font-size: 13px;
+                    color: #666;
+                    line-height: 1.5;
+                }
+                /* Puppy Care Tips */
+                
+                #premium-dog-home .tip {
+                    display: flex;
+                    gap: 12px;
+                    align-items: flex-start;
+                    padding: 14px;
+                    border-radius: 10px;
+                    background: linear-gradient(180deg, #fff, #fbfdff);
+                    border-left: 4px solid #0b76b7;
+                }
+                /* Customer Reviews */
+                
+                #premium-dog-home .review {
+                    padding: 16px;
+                    border-radius: 10px;
+                    background: #fff;
+                    min-height: 100px;
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+                }
+                
+                #premium-dog-home .stars {
+                    color: #f5a623;
+                    font-weight: 700;
+                    font-size: 14px;
+                }
+                /* Promotions / WhatsApp */
+                
+                #premium-dog-home .promo {
+                    background: linear-gradient(90deg, #fff2e6, #fff9f1);
+                    padding: 16px;
+                    border-radius: 12px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    gap: 12px;
+                    box-shadow: 0 8px 24px rgba(15, 23, 42, .06);
+                }
+                
+                #premium-dog-home .promo .left {
+                    font-weight: 700;
+                    color: #b33a00;
+                    font-size: 16px;
+                }
+                
+                #premium-dog-home .promo .right {
+                    font-size: 14px;
+                    color: #6b3b12;
+                }
+                
+                #premium-dog-home .whatsapp {
+                    background: linear-gradient(135deg, #25D366, #12b35c);
+                    color: #fff;
+                    padding: 12px 18px;
+                    border-radius: 12px;
+                    text-decoration: none;
+                    font-weight: 700;
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 8px;
+                    box-shadow: 0 8px 20px rgba(37, 211, 102, .25);
+                    transition: all 0.3s ease;
+                }
+                
+                #premium-dog-home .whatsapp:hover {
+                    transform: translateY(-2px);
+                    box-shadow: 0 12px 28px rgba(37, 211, 102, .35);
+                }
+                /* Enquire Now button */
+                
+                #premium-dog-home .btn-enquire {
+                    background: linear-gradient(90deg, #0b76b7, #0b4a72);
+                    color: #fff;
+                    border: none;
+                    padding: 10px 16px;
+                    border-radius: 12px;
+                    cursor: pointer;
+                    font-weight: 700;
+                    transition: all 0.3s ease;
+                }
+                
+                #premium-dog-home .btn-enquire:hover {
+                    transform: translateY(-2px);
+                    box-shadow: 0 6px 16px rgba(11, 74, 114, 0.3);
+                }
+                /* Modal styles (scoped) */
+                
+                #pd-modal {
+                    position: fixed;
+                    inset: 0;
+                    display: none;
+                    align-items: center;
+                    justify-content: center;
+                    background: rgba(8, 12, 20, 0.5);
+                    z-index: 1200;
+                }
+                
+                #pd-modal.active {
+                    display: flex;
+                }
+                
+                #pd-modal .modal-box {
+                    width: 100%;
+                    max-width: 520px;
+                    background: #fff;
+                    border-radius: 12px;
+                    padding: 24px;
+                    box-shadow: 0 20px 60px rgba(10, 20, 40, .6);
+                }
+                
+                #pd-modal h3 {
+                    margin: 0 0 16px;
+                    font-family: 'Playfair Display', serif;
+                    font-size: 22px;
+                }
+                
+                #pd-modal .field {
+                    margin-bottom: 14px;
+                }
+                
+                #pd-modal input[type="text"],
+                #pd-modal input[type="tel"],
+                #pd-modal textarea {
+                    width: 100%;
+                    padding: 12px;
+                    border-radius: 8px;
+                    border: 1px solid #e6eef8;
+                    font-size: 14px;
+                }
+                
+                #pd-modal .modal-actions {
+                    display: flex;
+                    gap: 12px;
+                    justify-content: flex-end;
+                    margin-top: 16px;
+                }
+                
+                #pd-modal .btn-cancel {
+                    background: #f2f4f7;
+                    border: none;
+                    padding: 10px 16px;
+                    border-radius: 8px;
+                    cursor: pointer;
+                    font-weight: 600;
+                }
+                /* Gallery preview */
+                
+                #premium-dog-home .gallery {
+                    display: grid;
+                    grid-template-columns: repeat(6, 1fr);
+                    gap: 8px;
+                }
+                
+                #premium-dog-home .gallery a {
+                    display: block;
+                    height: 80px;
+                    border-radius: 8px;
+                    overflow: hidden;
+                    background-size: cover;
+                    background-position: center;
+                    box-shadow: 0 6px 18px rgba(11, 26, 45, .04);
+                }
+                /* Utilities */
+                
+                #premium-dog-home a.link {
+                    color: #0b76b7;
+                    text-decoration: none;
+                    font-weight: 600;
+                }
+                
+                @media (max-width:980px) {
+                    #premium-dog-home .grid-3 {
+                        grid-template-columns: repeat(2, 1fr);
+                    }
+                    #premium-dog-home .grid-4 {
+                        grid-template-columns: repeat(2, 1fr);
+                    }
+                    #premium-dog-home .gallery {
+                        grid-template-columns: repeat(3, 1fr);
+                    }
+                    #premium-dog-home .hero {
+                        height: 300px;
+                    }
+                }
+                
+                @media (max-width:560px) {
+                    #premium-dog-home .grid-3,
+                    #premium-dog-home .grid-4 {
+                        grid-template-columns: 1fr;
+                    }
+                    #premium-dog-home .gallery {
+                        grid-template-columns: repeat(2, 1fr);
+                    }
+                    #premium-dog-home .hero {
+                        height: 220px;
+                    }
+                }
+            </style>
+
+            <!-- Hero / Slider -->
+            <div class="hero" role="region" aria-label="Homepage hero">
+                <div class="slides" id="pd-slides">
+                    <div class="slide active" style="background-image:url('images/dog1.jpg');"></div>
+                    <div class="slide" style="background-image:url('images/dog2.jpg');"></div>
+                    <div class="slide" style="background-image:url('images/dog3.jpg');"></div>
+                </div>
+                <div class="overlay" aria-hidden="false">
+                    <h1>Bring Your Dream Dog Home</h1>
+                    <p style="font-size:16px;">Handpicked breeds, premium care, and seamless adoption — find your perfect companion today.</p>
+                </div>
+            </div>
+
+            <!-- Featured Dogs -->
+            <div style="margin-bottom:14px;">
+                <h2 style="margin:0 0 10px;">Featured Dogs</h2>
+                <div class="grid-3">
+                    <div class="card dog">
+                        <div class="thumb" style="background-image:url('images/Labrador 1.jpeg');" aria-hidden="true"></div>
+                        <div>
+                            <h3>Labrador Retriever</h3>
+                            <p>Friendly, outgoing, and great with families. Ideal for active households.</p>
+                            <div style="margin-top:8px; display:flex; gap:8px; align-items:center;">
+                                <a class="link" href="dogs.html">Learn More →</a>
+                                <button class="btn-enquire" data-dog="Labrador Retriever">Enquire Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card dog">
+                        <div class="thumb" style="background-image:url('images/dog2.jpg');" aria-hidden="true"></div>
+                        <div>
+                            <h3>Beagle</h3>
+                            <p>Curious and merry; loves exploring and has a gentle nature with kids.</p>
+                            <div style="margin-top:8px; display:flex; gap:8px; align-items:center;">
+                                <a class="link" href="dogs.html">Learn More →</a>
+                                <button class="btn-enquire" data-dog="Beagle">Enquire Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card dog">
+                        <div class="thumb" style="background-image:url('images/Toy Pom1.jpeg');" aria-hidden="true"></div>
+                        <div>
+                            <h3>Pomeranian</h3>
+                            <p>Small, lively companion — great for apartment living and affectionate owners.</p>
+                            <div style="margin-top:8px; display:flex; gap:8px; align-items:center;">
+                                <a class="link" href="dogs.html">Learn More →</a>
+                                <button class="btn-enquire" data-dog="Pomeranian">Enquire Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Puppy Care Tips -->
+            <div style="margin-bottom:14px;">
+                <h2 style="margin:0 0 10px;">Puppy Care Tips</h2>
+                <div class="grid-3">
+                    <div class="card tip">
+                        <div>
+                            <strong>1. Socialization</strong>
+                            <p style="margin:6px 0 0;font-size:13px;color:#444;">Introduce your puppy to people and pets early for confident growth.</p>
+                        </div>
+                        <div style="align-self:center;"><a class="link" href="health-tips.html">Read More →</a></div>
+                    </div>
+                    <div class="card tip">
+                        <div>
+                            <strong>2. Nutrition</strong>
+                            <p style="margin:6px 0 0;font-size:13px;color:#444;">Choose age-appropriate food and follow feeding guidelines with vet checks.</p>
+                        </div>
+                        <div style="align-self:center;"><a class="link" href="health-tips.html">Read More →</a></div>
+                    </div>
+                    <div class="card tip">
+                        <div>
+                            <strong>3. Training Basics</strong>
+                            <p style="margin:6px 0 0;font-size:13px;color:#444;">Start gentle routines and positive reinforcement from day one.</p>
+                        </div>
+                        <div style="align-self:center;"><a class="link" href="health-tips.html">Read More →</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Customer Reviews -->
+            <div style="margin-bottom:14px;">
+                <h2 style="margin:0 0 10px;">Customer Reviews</h2>
+                <div class="grid-3">
+                    <div class="card review">
+                        <div style="display:flex;justify-content:space-between;align-items:center;">
+                            <div><strong>Sunita P.</strong>
+                                <div class="stars">★★★★★</div>
+                            </div>
+                            <div style="font-size:12px;color:#777;">Verified</div>
+                        </div>
+                        <p style="margin:8px 0 0;font-size:13px;color:#444;">Amazing care and updates during our pup's stay — very trustworthy team.</p>
+                    </div>
+                    <div class="card review">
+                        <div style="display:flex;justify-content:space-between;align-items:center;">
+                            <div><strong>Rakesh M.</strong>
+                                <div class="stars">★★★★☆</div>
+                            </div>
+                            <div style="font-size:12px;color:#777;">Verified</div>
+                        </div>
+                        <p style="margin:8px 0 0;font-size:13px;color:#444;">Friendly staff and great play area; booking was simple and responsive.</p>
+                    </div>
+                    <div class="card review">
+                        <div style="display:flex;justify-content:space-between;align-items:center;">
+                            <div><strong>Anita K.</strong>
+                                <div class="stars">★★★★★</div>
+                            </div>
+                            <div style="font-size:12px;color:#777;">Verified</div>
+                        </div>
+                        <p style="margin:8px 0 0;font-size:13px;color:#444;">Highly recommend for grooming — our dog looked and felt wonderful.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Promotions + WhatsApp Button -->
+            <div style="margin-bottom:14px;">
+                <div class="promo">
+                    <div class="left">Adoption Week Special — Adoption fees waived for select pups!</div>
+                    <div class="right">
+                        <a id="pd-whatsapp" class="whatsapp" href="#" target="_blank" rel="noopener">WhatsApp Us</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dog Gallery Preview -->
+            <div style="margin-bottom:14px;">
+                <h2 style="margin:0 0 10px;">Dog Gallery Preview</h2>
+                <div class="gallery" aria-label="Dog gallery preview">
+                    <a href="gallery.html" style="background-image:url('images/dog4.jpg');" aria-label="Gallery image 1"></a>
+                    <a href="gallery.html" style="background-image:url('images/dog5.jpg');" aria-label="Gallery image 2"></a>
+                    <a href="gallery.html" style="background-image:url('images/dog6.jpg');" aria-label="Gallery image 3"></a>
+                    <a href="gallery.html" style="background-image:url('images/dog3.jpg');" aria-label="Gallery image 4"></a>
+                </div>
+                <div style="margin-top:8px;"><a class="link" href="gallery.html">View Full Gallery →</a></div>
+            </div>
+
+            <!-- Enquiry modal (scoped) -->
+            <div id="pd-modal" aria-hidden="true">
+                <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="pd-modal-title">
+                    <button id="pd-modal-close" aria-label="Close" class="btn-cancel" style="float:right;">✕</button>
+                    <h3 id="pd-modal-title">Enquire About <span id="pd-modal-dog">Dog</span></h3>
+                    <form id="pd-enquire-form">
+                        <div class="field"><input type="text" id="pd-name" placeholder="Your name" required></div>
+                        <div class="field"><input type="tel" id="pd-phone" placeholder="Phone number (with country code, e.g. 9198...)" required></div>
+                        <div class="field"><textarea id="pd-message" rows="4" placeholder="Your message / enquiry"></textarea></div>
+                        <div class="modal-actions">
+                            <button type="button" class="btn-cancel" id="pd-cancel">Cancel</button>
+                            <button type="submit" class="btn-enquire" id="pd-submit">Send via WhatsApp</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <script>
+                (function() {
+                    // Slider logic (simple, scoped)
+                    const slides = document.querySelectorAll('#premium-dog-home .hero .slide');
+                    let sidx = 0;
+                    if (slides.length > 1) {
+                        setInterval(() => {
+                            slides[sidx].classList.remove('active');
+                            sidx = (sidx + 1) % slides.length;
+                            slides[sidx].classList.add('active');
+                        }, 4500);
+                    }
+
+                    // WhatsApp quick action: open chat with number prefilled message
+                    const waBtn = document.getElementById('pd-whatsapp');
+                    // Use the clinic's WhatsApp number (country code, no +)
+                    const WA_NUMBER = '919796120006';
+                    const PREFILL_TEXT = encodeURIComponent('Hello S2 Kennel Jammu, I have a query about your dogs.');
+                    waBtn.href = 'https://wa.me/' + WA_NUMBER + '?text=' + PREFILL_TEXT;
+                    waBtn.setAttribute('target', '_blank');
+                    waBtn.setAttribute('rel', 'noopener');
+                    waBtn.setAttribute('aria-label', 'Contact us on WhatsApp');
+
+                    // Enquiry modal functionality
+                    const modal = document.getElementById('pd-modal');
+                    const modalDog = document.getElementById('pd-modal-dog');
+                    const enquireButtons = document.querySelectorAll('#premium-dog-home .btn-enquire');
+                    const form = document.getElementById('pd-enquire-form');
+                    const nameInput = document.getElementById('pd-name');
+                    const phoneInput = document.getElementById('pd-phone');
+                    const messageInput = document.getElementById('pd-message');
+                    const modalClose = document.getElementById('pd-modal-close');
+                    const modalCancel = document.getElementById('pd-cancel');
+
+                    let selectedDog = '';
+
+                    function openModal(dog) {
+                        selectedDog = dog || '';
+                        modalDog.textContent = selectedDog;
+                        modal.classList.add('active');
+                        modal.setAttribute('aria-hidden', 'false');
+                        nameInput.focus();
+                    }
+
+                    function closeModal() {
+                        modal.classList.remove('active');
+                        modal.setAttribute('aria-hidden', 'true');
+                        form.reset();
+                    }
+
+                    enquireButtons.forEach(btn => {
+                        btn.addEventListener('click', (e) => {
+                            const dog = btn.getAttribute('data-dog') || btn.dataset.dog || 'Dog';
+                            openModal(dog);
+                        });
+                    });
+
+                    modalClose.addEventListener('click', closeModal);
+                    modalCancel.addEventListener('click', closeModal);
+                    modal.addEventListener('click', (e) => {
+                        if (e.target === modal) closeModal();
+                    });
+                    document.addEventListener('keydown', (e) => {
+                        if (e.key === 'Escape') closeModal();
+                    });
+
+                    // On submit -> open WhatsApp chat with prefilled message containing form data
+                    form.addEventListener('submit', (e) => {
+                        e.preventDefault();
+                        const name = nameInput.value.trim();
+                        const phone = phoneInput.value.trim();
+                        const msg = messageInput.value.trim();
+                        if (!name || !phone) {
+                            alert('Please provide your name and phone number.');
+                            return;
+                        }
+                        const text = `Enquiry about: ${selectedDog}%0AName: ${encodeURIComponent(name)}%0APhone: ${encodeURIComponent(phone)}%0AMessage: ${encodeURIComponent(msg)}`;
+                        const url = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(`Enquiry about: ${selectedDog}\nName: ${name}\nPhone: ${phone}\nMessage: ${msg}`);
+                        window.open(url, '_blank');
+                        closeModal();
+                    });
+                })();
+            </script>
+        </section>
+        <!-- END: Premium Homepage (dog-themed) - inserted block -->
+
+        <!-- OUR HONOR / OWNER SECTION -->
+        <section class="honor-section">
+            <div class="container">
+                <h2 class="section-title">Our Honor / Owner</h2>
+                <div class="honor-content">
+                    <div class="honor-photo-wrapper">
+                        <img src="images/owner.jpg" alt="Harsh Sharma - Owner" class="honor-photo">
+                    </div>
+                    <div class="honor-info">
+                        <h3 class="honor-name">Harsh Sharma</h3>
+                        <p class="honor-title">Founder & Owner – S2 Kennel Jammu</p>
+                        <p class="honor-experience">10+ Years of Experience in Premium & Healthy Dog Breeding</p>
+                        <p class="honor-bio">With over a decade of dedication and passion, Harsh Sharma has established S2 Kennel Jammu as the premier destination for premium dog breeding. His commitment to excellence, health standards, and ethical breeding practices ensures
+                            that every dog finds a perfect home.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- QUICK DOGS PREVIEW -->
+        <section class="quick-preview">
+            <div class="container">
+                <h2 class="section-title">Featured Dogs</h2>
+                <p class="section-subtitle">Browse our premium collection of carefully bred dogs</p>
+                <div class="preview-buttons">
+                    <a href="dogs.html" class="btn btn-primary">View All Dogs</a>
+                </div>
+            </div>
+        </section>
+        </section>
+
+        <!-- LOCATION SECTION -->
+        <section class="location-section">
+            <div class="container">
+                <h2 class="section-title">📍 Our Location</h2>
+                <div class="location-content">
+                    <div class="location-info">
+                        <div class="location-badge">
+                            <span class="location-icon">📍</span>
+                            <h3>Vijaypur, Jammu & Kashmir</h3>
+                        </div>
+                        <p class="location-text">Visit us at our kennel in Vijaypur to meet our dogs in person. We are open for visits by appointment.</p>
+                        <a href="location.html" class="btn btn-maps">
+                            📍 View Location on Google Maps
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section class="contact-section">
+            <div class="container">
+                <h2 class="section-title">💬 Contact Us</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>Get in Touch</h3>
+                        <div class="contact-details">
+                            <div class="detail-item">
+                                <span class="detail-label">👨‍💼 Manager:</span>
+                                <span class="detail-value">Nikhil Sharma</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">👨‍💻 Coordinator:</span>
+                                <span class="detail-value">Neeraj Sharma</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">📍 Location:</span>
+                                <span class="detail-value">Vijaypur, Jammu & Kashmir</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">💬 WhatsApp:</span>
+                                <span class="detail-value"><a href="https://wa.me/919796120006" class="contact-link" target="_blank">+91 9796120006</a></span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">📷 Follow Us:</span>
+                                <span class="detail-value"><a href="https://www.instagram.com/jammu_dogslover" class="contact-link insta-link" target="_blank">📷 Instagram @jammu_dogslover</a></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-form-wrapper">
+                        <h3>Quick Enquiry Form</h3>
+                        <form id="enquiryForm" class="enquiry-form">
+                            <input type="text" id="dogBreed" placeholder="Dog Breed" readonly>
+                            <input type="text" id="custName" placeholder="Your Name" required>
+                            <input type="tel" id="custPhone" placeholder="Phone Number" required>
+                            <textarea id="custMessage" placeholder="Your Message or Questions" rows="4" required></textarea>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>S2 Kennel Jammu</h4>
+                    <p>Premium Dog Breeders</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Management</h4>
+                    <p>Manager: Nikhil Sharma</p>
+                    <p>Coordinator: Neeraj Sharma</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <a href="https://www.instagram.com/jammu_dogslover" target="_blank" class="social-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 6.5A4.5 4.5 0 1 0 16.5 13 4.5 4.5 0 0 0 12 8.5zm5-.75a1.25 1.25 0 1 1-1.25-1.25A1.25 1.25 0 0 1 17 7.75zM12 10.5A1.5 1.5 0 1 1 10.5 12 1.5 1.5 0 0 1 12 10.5z"/></svg>                        Instagram
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 S2 Kennel Jammu. All Rights Reserved. | Location: Vijaypur, Jammu & Kashmir</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL FOR ENQUIRY FORM -->
+    <div id="enquiryModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <h2>🐕 Enquiry Form</h2>
+            <form id="enquiryFormModal" class="enquiry-form">
+                <input type="text" id="dogBreedModal" placeholder="Dog Breed" readonly required>
+                <input type="text" id="custNameModal" placeholder="Your Name" required>
+                <input type="tel" id="custPhoneModal" placeholder="Phone Number" required>
+                <textarea id="custMessageModal" placeholder="Your Message or Questions" rows="4" required></textarea>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script>
+        const images = [
+            'images/dog1.jpg',
+            'images/Golden labrador1.jpeg',
+            'images/Shihtzu 1.jpeg',
+            'images/Rottweiller1.jpeg',
+            'images/Tibetian mastiff1.jpg.jpeg'
+        ];
+        let currentIndex = 0;
+        const heroImg = document.getElementById('heroImg');
+
+        function changeImage() {
+            currentIndex = (currentIndex + 1) % images.length;
+            heroImg.src = images[currentIndex];
+        }
+
+        setInterval(changeImage, 2000);
+    </script>
+</body>
+
+</html>

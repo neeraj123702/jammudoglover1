@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - S2 Kennel Jammu</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <!-- LOGIN PAGE -->
+    <div id="loginPage" class="login-container">
+        <div class="login-box">
+            <div class="login-logo">
+                <span class="kennel-icon">🐕</span>
+                <h1>S2 Kennel</h1>
+                <p>Admin Panel - Jammu</p>
+            </div>
+
+            <div id="loginError" class="login-error"></div>
+
+            <form id="loginForm" onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label for="loginUsername">Username</label>
+                    <input type="text" id="loginUsername" placeholder="username" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" placeholder="password" required>
+                </div>
+
+                <button type="submit" id="loginBtn" class="btn btn-primary">Login</button>
+            </form>
+
+            <p style="text-align: center; margin-top: 20px; font-size: 12px; color: var(--text-muted);">
+                🔒 Secure Admin Access
+            </p>
+        </div>
+    </div>
+
+    <!-- DASHBOARD PAGE -->
+    <div id="dashboardPage" style="display: none;">
+        <div class="admin-wrapper">
+            <!-- Sidebar -->
+            <aside class="admin-sidebar">
+                <div class="sidebar-header">
+                    <h2>Admin</h2>
+                    <p>S2 Kennel Jammu</p>
+                </div>
+
+                <nav class="sidebar-nav">
+                    <a class="nav-item active" data-section="dashboard" onclick="navigateToSection('dashboard')">
+                        <i>📊</i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a class="nav-item" data-section="dogs" onclick="navigateToSection('dogs')">
+                        <i>🐕</i>
+                        <span>Dogs List</span>
+                    </a>
+                </nav>
+
+                <div class="sidebar-footer">
+                    <button class="logout-btn" onclick="handleLogout()">
+                        <i>🚪</i>
+                        <span>Logout</span>
+                    </button>
+                </div>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="admin-main">
+                <!-- Header -->
+                <header class="admin-header">
+                    <h1>Admin Dashboard</h1>
+                    <div class="admin-info">
+                        <span class="admin-user" id="adminUser">Admin</span>
+                    </div>
+                </header>
+
+                <!-- Dashboard Section -->
+                <section id="dashboard" class="admin-section active">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon dogs">🐕</div>
+                            <div class="stat-info">
+                                <h3 id="totalDogs">0</h3>
+                                <p>Total Dogs</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="admin-card">
+                        <h2>Welcome to Admin Panel</h2>
+                        <p style="color: var(--text-light);">Manage your S2 Kennel Jammu website from here.</p>
+                        <ul style="color: var(--text-light); margin-top: 15px; margin-left: 20px;">
+                            <li>View all dogs from Google Sheets</li>
+                            <li>Monitor inventory in real-time</li>
+                            <li>Manage website content</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Dogs List Section -->
+                <section id="dogs" class="admin-section">
+                    <div class="admin-card">
+                        <h2>Dogs Inventory</h2>
+                        <p style="color: var(--text-light); margin-bottom: 20px;">All dogs from Google Sheets</p>
+                        
+                        <div id="dogsTableContainer" style="overflow-x: auto;">
+                            <table class="dogs-table">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Name</th>
+                                        <th>Breed</th>
+                                        <th>Age</th>
+                                        <th>Price</th>
+                                        <th>Image</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="dogsTableBody">
+                                    <tr>
+                                        <td colspan="7" style="text-align: center; padding: 20px;">
+                                            <span class="loading">Loading dogs data...</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div id="dogsTableMessage" style="margin-top: 20px; color: var(--text-light);"></div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <script src="admin-improved.js"></script>
+</body>
+</html>
